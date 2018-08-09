@@ -6,9 +6,5 @@
 
 * jquery
 * bootstrap
+* vue-moment
 * font-awesome
-* axios
-* vue-pnotify
-* vue-dialog
-* jump.js
-* moment

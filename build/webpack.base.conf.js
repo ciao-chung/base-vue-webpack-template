@@ -2,6 +2,7 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const webpack = require('webpack')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -88,5 +89,16 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery/dist/jquery",
+      jQuery: "jquery/dist/jquery",
+      "window.jQuery": "jquery",
+      "window.$": "jquery",
+      Tether: 'tether',
+      PNotify: 'pnotify',
+      "window.Tether": 'tether'
+    })
+  ]
 }
