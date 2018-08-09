@@ -7,6 +7,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackShellPlugin = require('webpack-shell-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -118,8 +119,19 @@ const webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
-      }
-    ])
+      },
+      {
+        from: path.resolve(__dirname, '../copyfile'),
+        to: config.build.assetsRoot,
+      },
+    ]),
+
+
+    new WebpackShellPlugin({
+      onBuildStart: [
+        `rm -rf ${config.build.assetsRoot}`,
+      ],
+    }),
   ]
 })
 
