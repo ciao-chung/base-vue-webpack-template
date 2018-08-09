@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>
+<script lang="babel" type="text/babel">
 export default {
   async created() {
     console.warn('create')
