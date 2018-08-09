@@ -6,5 +6,7 @@
 
 * jquery
 * bootstrap
-* vue-moment
 * font-awesome
+* vue-moment
+* vue-meta
+* vuex
