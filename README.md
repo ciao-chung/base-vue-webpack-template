@@ -2,7 +2,7 @@
 
 > Base Vue Webpack Template
 
-## Common Packages
+## Packages
 
 * jquery
 * bootstrap
